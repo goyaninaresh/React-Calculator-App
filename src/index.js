@@ -1,17 +1,52 @@
-import React from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
+import React from "react";
+import ReactDom from "react-dom";
 
-const styles = {
-  fontFamily: 'sans-serif',
-  textAlign: 'center',
-};
+class ReactCalculator extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      value1: "",
+      value2: "",
+      operation: "+",
+      result: ""
+    }
+  }
 
-const App = () => (
-  <div style={styles}>
-    <Hello name="CodeSandbox" />
-    <h2>Start editing to see some magic happen {'\u2728'}</h2>
-  </div>
-);
+  render(){
+    return(
+      <div className="naresh_calculator">
+          <form>
+            <table>
+              <tr>
+                <td colspan="2">Simple Calculator</td>
+              </tr>
+              <tr>
+                <td>Value 1</td>
+                <td><input type="text" name="value1"/></td>
+              </tr>
+              <tr>
+                <td>Value 2</td>
+                <td><input type="text" name="value2" /></td>
+              </tr>
+              <tr>
+                <td>Operation</td>
+                <td>
+                  <select>
+                    <option>+</option>
+                    <option>-</option>
+                    <option>*</option>
+                    <option>/</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2"><input type="submit" value="Calculate"/></td>
+              </tr>
+            </table>
+          </form>
+      </div>
+    )  
+  }
+}
 
-render(<App />, document.getElementById('root'));
+ReactDom.render(<ReactCalculator />, document.getElementById("root"));
